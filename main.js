@@ -32,7 +32,7 @@ function ready(periodsData, sentiments) {
     render(periodsData[0], sentiments, startDate);
 }
 
-$.ajax("/ridiculous-sentences.json", {success: function(data){
+$.ajax("https://gt-big-data.github.io/SuperBowl2014/ridiculous-sentences.json", {success: function(data){
     periodsData = {};
     max = (min = data[0].per);
     for(var i = 0; i < data.length; i++) {
@@ -40,6 +40,6 @@ $.ajax("/ridiculous-sentences.json", {success: function(data){
         if(data[i].per > max) {max = data[i].per;}
         if(data[i].per < min) {min = data[i].per;}
     }
-    $.ajax("/sentiments.json", {success: function(data) {ready(periodsData, data);}});
+    $.ajax("https://gt-big-data.github.io/SuperBowl2014/sentiments.json", {success: function(data) {ready(periodsData, data);}});
 }});
 
